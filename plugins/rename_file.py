@@ -22,7 +22,7 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram import filters 
-from pyrogram import Client as Mai_bOTs
+from pyrogram import Client as anonymousbotz
 
 #from helper_funcs.chat_base import TRChatBase
 from helper_funcs.display_progress import progress_for_pyrogram
@@ -36,7 +36,7 @@ from PIL import Image
 from database.database import *
 from database.db import *
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["scaption"]))
+@anonymousbotz.on_message(pyrogram.filters.command(["scaption"]))
 async def set_caption(bot, update):
     if len(update.command) == 1:
         await update.reply_text(
@@ -59,7 +59,7 @@ async def set_caption(bot, update):
         await update.reply_text(f"**--Your Caption--:**\n\n{CSTM_FIL_CPTN}", quote=True)
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["rename"]))
+@anonymousbotz.on_message(pyrogram.filters.command(["rename"]))
 async def rename_doc(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
@@ -163,7 +163,7 @@ async def rename_doc(bot, update):
                 caption=f"{caption_text2}",
                 parse_mode = "html",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="𝚂ᴜᴘᴘᴏʀᴛ 𝙲ʜᴀɴɴᴇʟ", url=f"https://t.me/Mai_bOTs")]
+                    [ InlineKeyboardButton(text="𝚂ᴜᴘᴘᴏʀᴛ 𝙲ʜᴀɴɴᴇʟ", url=f"https://t.me/anonymousbotz")]
               ]), 
                 reply_to_message_id=update.reply_to_message.message_id,
                 progress=progress_for_pyrogram,

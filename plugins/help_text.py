@@ -21,7 +21,7 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 from pyrogram import filters 
-from pyrogram import Client as Mai_bOTs
+from pyrogram import Client as anonymousbotz
 
 #from helper_funcs.chat_base import TRChatBase
 from helper_funcs.display_progress import progress_for_pyrogram
@@ -36,7 +36,7 @@ from database.database import *
 from database.db import *
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["help"]))
+@anonymousbotz.on_message(pyrogram.filters.command(["help"]))
 async def help_user(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
@@ -74,7 +74,7 @@ async def help_user(bot, update):
         )
     )       
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
+@anonymousbotz.on_message(pyrogram.filters.command(["start"]))
 async def start_me(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are Banned")
@@ -102,12 +102,12 @@ async def start_me(bot, update):
                         InlineKeyboardButton("Help", callback_data = "ghelp")
                 ],
                 [
-                    InlineKeyboardButton('Support Channel', url='https://t.me/Mai_bOTs'),
+                    InlineKeyboardButton('Support Channel', url='https://t.me/anonymousbotz'),
                     InlineKeyboardButton('Feedback', url='https://t.me/No_OnE_Kn0wS_Me')
                 ],
                 [
-                    InlineKeyboardButton('Other Bots', url='https://t.me/Mai_bOTs/17'),
-                    InlineKeyboardButton('Source', url='https://github.com/No-OnE-Kn0wS-Me/FileRenameBot')
+                    InlineKeyboardButton('Other Bots', url='https://t.me/anonymousbotz/4'),
+                    InlineKeyboardButton('Source', url='https://github.com/NetworkChukka/AD-File-Rename-Bot')
                 ]
             ]
         ),
@@ -115,8 +115,8 @@ async def start_me(bot, update):
     )
             return 
 
-@Mai_bOTs.on_callback_query()
-async def cb_handler(client: Mai_bOTs , query: CallbackQuery):
+@anonymousbotz.on_callback_query()
+async def cb_handler(client: anonymousbotz , query: CallbackQuery):
     data = query.data
     if data == "rnme":
         await query.message.edit_text(
